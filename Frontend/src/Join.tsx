@@ -40,7 +40,7 @@ export function Join(){
     <form onSubmit={sendMessage} className='flex gap-2'>
       <input type="text" placeholder='Enter username' ref={usernameRef}/>
       <input type="text" placeholder='Enter roomId' ref={roomRef}/>
-      <button type='submit'>JOIN</button>
+      <button className='bg-blue-400' type='submit'>JOIN</button>
       </form>
     </>
 }
