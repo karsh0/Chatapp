@@ -5,7 +5,7 @@ import { useSocket } from './hooks/useSocket'
 export function Chat(){
     const socket = useSocket();
     const messageRef = useRef<HTMLInputElement | null>(null)
-    const [messages, setMessages] = useState([])
+    const [messages, setMessages] = useState<any>([])
   
     function sendMessage(ev:React.FormEvent){
       ev.preventDefault()
@@ -28,12 +28,11 @@ export function Chat(){
       }
     }
 
-    const username = localStorage.getItem('username');
   
     return  <div className='b'>
         <div>
             {messages.map((x)=>{
-                return <div>{x} from {username}</div>
+                return <div>{x}</div>
             })}
         </div>
         <div>

@@ -1,6 +1,6 @@
 
 export function Landing(){
     return <div>
-    landing
+            landing
         </div>
 }
