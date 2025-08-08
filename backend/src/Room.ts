@@ -1,5 +1,5 @@
 import { WebSocket } from "ws";
-import { CHAT, JOIN_ROOM, LEAVE_ROOM } from "./messages";
+import { CHAT, JOIN_ROOM, LEAVE_ROOM, MESSAGE } from "./messages";
 import { User } from "./type";
 
 export class Room{
@@ -47,13 +47,13 @@ export class Room{
 
             if(message.type === CHAT){
                 const user = this.allRooms.find(u => u.socket === socket);
-                
                 if(!user) return;
 
                 const rooms = this.allRooms.filter(r => r.roomId === message.payload.roomId)
 
                 rooms.forEach(r => r.socket.send(JSON.stringify({
-                    from: user.username,
+                    type:MESSAGE,
+                    from: user.username,    
                     message: message.payload.message
                 })))
             }
